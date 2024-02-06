@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34031.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arduino_2FA", "Arduino_2FA.csproj", "{B6B22759-BC97-4483-94B8-42EB4C2843FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6B22759-BC97-4483-94B8-42EB4C2843FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B22759-BC97-4483-94B8-42EB4C2843FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6B22759-BC97-4483-94B8-42EB4C2843FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6B22759-BC97-4483-94B8-42EB4C2843FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF9E278F-88C3-42B2-A97F-5B8958E39EA4}
+	EndGlobalSection
+EndGlobal

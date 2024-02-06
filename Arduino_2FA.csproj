@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_Coordenades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Coordenades.Designer.cs">
+      <DependentUpon>frm_Coordenades.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Validation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm_Coordenades.resx">
+      <DependentUpon>frm_Coordenades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Validation.resx">
       <DependentUpon>frm_Validation.cs</DependentUpon>
     </EmbeddedResource>

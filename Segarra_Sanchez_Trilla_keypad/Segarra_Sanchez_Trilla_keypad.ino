@@ -21,10 +21,10 @@ byte colPins[COLS] = { 5, 4, 3, 2 };
 Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
 
 String password = "";
-String hcPassword = "";
+String input = "";
 String inputString = "";
 
-int temp = 30;
+int temp = 58;
 unsigned long previousMillis = 0;
 const long interval = 1000;
 bool done = false;
@@ -47,7 +47,7 @@ void setup() {
 void loop() {
   unsigned long currentMillis = millis();
 
-  if(stringComplete){
+  if(input == "inici"){
     if (!done && (currentMillis - previousMillis >= interval)) {
       previousMillis = currentMillis;
       temp--;
@@ -65,31 +65,18 @@ void loop() {
         password = "";
       } else if (customKey == '#') {
         done = true;
-        if (password == hcPassword) {
-          lcd.clear();
-          lcd.print("Correct");
-          Serial.println("ok");
-          lcd.setCursor(0, 2);
-          lcd.print("Continue in app");
-        } else {
-          lcd.clear();
-          lcd.setCursor(0, 0);
-          lcd.print("NOK :(");
-          Serial.println("nok");
-          delay(2000);
-          lcd.clear();
-          password = "";
-          done = false;
-        }
+        Serial.println(password);
       }
-
       if (!done) {
         Actualitzar(Encriptar(password), temp);
       }
     } else {
       lcd.clear();
-      lcd.print("Time is UP!! :((");
+      lcd.print("Time is UP");
     }
+  }
+  else{
+     lcd.print(input);
   }
 }
 
@@ -129,9 +116,9 @@ void serialEvent() {
     inChar = (char)Serial.read();
     if (inChar == '\n') {
       stringComplete = true;
-      hcPassword = inputString;
+      input = inputString;
       lcd.clear();
-      lcd.print("Password recived");
+      lcd.print("Starting...");
       delay(2000);
     }
     else{

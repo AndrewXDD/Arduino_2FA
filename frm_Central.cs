@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,19 +19,52 @@ namespace Arduino_2FA
         public frm_Central()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
+            portArduino = new SerialPort();
         }
 
+        SerialPort portArduino;
+        Thread filEscolta;
         int otp;
         int tempsRestant = 60;
+
+        private void frm_Central_Load(object sender, EventArgs e)
+        {
+            cmbPorts.Items.Clear();
+            string[] ports = SerialPort.GetPortNames();
+            cmbPorts.Items.AddRange(ports);
+        }
+
+        string response = "";
+        private void ReceiveData()
+        {
+            while (portArduino.IsOpen)
+            {
+                response = portArduino.ReadLine();
+            }
+        }
+
+        private void SerialReceive()
+        {
+            filEscolta = new Thread(ReceiveData);
+            filEscolta.Start();
+        }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             Random random = new Random();
             otp = random.Next(100000, 999999);
 
-            EnviarCorreu();
+            lblMissatge.Text = otp.ToString();
 
-            lblMissatge.Text = "S'ha enviat el codi per correu electrònic.";
+            if (portArduino.IsOpen)
+            {
+                portArduino.WriteLine(otp.ToString());
+            }
+
+            //EnviarCorreu();
+
+            //lblMissatge.Text = "S'ha enviat el codi per correu electrònic.";
 
             timer1.Start();
         }
@@ -75,6 +110,31 @@ namespace Arduino_2FA
             {
                 timer1.Stop();
                 lblTimer.Text = "Temps esgotat";
+            }
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            if (cmbPorts.SelectedItem != null)
+            {
+                string nomPortSeleccionat = cmbPorts.SelectedItem.ToString();
+
+                while (!portArduino.IsOpen)
+                {
+                    try
+                    {
+                        portArduino.PortName = nomPortSeleccionat;
+                        portArduino.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al obrir el port serie: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un port serie abans d'enviar dades.");
             }
         }
     }

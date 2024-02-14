@@ -60,12 +60,12 @@ namespace Arduino_2FA
 
             if (portArduino.IsOpen)
             {
-                portArduino.WriteLine(otp.ToString());
+                portArduino.WriteLine("INICI");
             }
 
             //EnviarCorreu();
 
-            lblMissatge.Text = "S'ha enviat el codi per correu electrònic.";
+            lblMissatge.Text = "S'ha enviat el codi OPT per correu electrònic.";
 
             timer1.Start();
         }
@@ -107,12 +107,12 @@ namespace Arduino_2FA
             {
                 int segons = tempsRestant / 1000;
                 int milisegons = (tempsRestant % 1000) / 10;
-                lblTimer.Text = string.Format("{0:D2}:{1:D2}", segons, milisegons);
+                lblTimer.Text = string.Format("{0:D2} : {1:D2}", segons, milisegons);
             }
             else
             {
                 timer1.Stop();
-                lblTimer.Text = "Temps esgotat";
+                lblTimer.Text = "NO TIME";
             }
         }
 
@@ -131,13 +131,22 @@ namespace Arduino_2FA
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error al obrir el port serie: " + ex.Message);
+                        lblMissatge.Text = "Error al obrir el port serie: " + ex.Message;
                     }
+                }
+
+                if (portArduino.IsOpen)
+                {
+                    lblMissatge.Text = "Connexió a l'Arduino establerta correctament.";
+                }
+                else
+                {
+                    lblMissatge.Text = "No s'ha pogut establir la connexió a l'Arduino.";
                 }
             }
             else
             {
-                MessageBox.Show("Selecciona un port serie abans d'enviar dades.");
+                lblMissatge.Text = "Selecciona un port serie abans d'enviar dades.";
             }
         }
     }

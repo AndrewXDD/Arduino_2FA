@@ -204,7 +204,7 @@ namespace Arduino_2FA
             // lblMissatge
             // 
             this.lblMissatge.AutoSize = true;
-            this.lblMissatge.Location = new System.Drawing.Point(46, 289);
+            this.lblMissatge.Location = new System.Drawing.Point(46, 315);
             this.lblMissatge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMissatge.Name = "lblMissatge";
             this.lblMissatge.Size = new System.Drawing.Size(78, 17);
@@ -216,7 +216,7 @@ namespace Arduino_2FA
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.Red;
-            this.lblTimer.Location = new System.Drawing.Point(63, 155);
+            this.lblTimer.Location = new System.Drawing.Point(54, 155);
             this.lblTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(98, 48);

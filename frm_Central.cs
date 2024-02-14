@@ -60,7 +60,7 @@ namespace Arduino_2FA
 
             if (portArduino.IsOpen)
             {
-                portArduino.WriteLine("INICI");
+                portArduino.WriteLine("inici");
             }
 
             //EnviarCorreu();

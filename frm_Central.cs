@@ -21,12 +21,13 @@ namespace Arduino_2FA
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
             portArduino = new SerialPort();
+            timer1.Interval = 10;
         }
 
         SerialPort portArduino;
         Thread filEscolta;
         int otp;
-        int tempsRestant = 60;
+        int tempsRestant = 60000;
 
         private void frm_Central_Load(object sender, EventArgs e)
         {
@@ -55,7 +56,7 @@ namespace Arduino_2FA
             Random random = new Random();
             otp = random.Next(100000, 999999);
 
-            lblMissatge.Text = otp.ToString();
+            txtOTPCode1.Text = otp.ToString();
 
             if (portArduino.IsOpen)
             {
@@ -64,7 +65,7 @@ namespace Arduino_2FA
 
             //EnviarCorreu();
 
-            //lblMissatge.Text = "S'ha enviat el codi per correu electrònic.";
+            lblMissatge.Text = "S'ha enviat el codi per correu electrònic.";
 
             timer1.Start();
         }
@@ -100,11 +101,13 @@ namespace Arduino_2FA
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            tempsRestant--;
+            tempsRestant -= timer1.Interval;
 
             if (tempsRestant >= 0)
             {
-                lblTimer.Text = "           " + tempsRestant.ToString() + "\nsegons restants ...";
+                int segons = tempsRestant / 1000;
+                int milisegons = (tempsRestant % 1000) / 10;
+                lblTimer.Text = string.Format("{0:D2}:{1:D2}", segons, milisegons);
             }
             else
             {

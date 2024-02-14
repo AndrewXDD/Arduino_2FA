@@ -41,8 +41,8 @@ namespace Arduino_2FA
             this.lblCoordinate = new System.Windows.Forms.Label();
             this.btnVerify = new System.Windows.Forms.Button();
             this.lblCoordinateCode = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtOTPCode1 = new System.Windows.Forms.TextBox();
+            this.txtOTPCode2 = new System.Windows.Forms.TextBox();
             this.lblOtpCode = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMissatge = new System.Windows.Forms.Label();
@@ -163,23 +163,24 @@ namespace Arduino_2FA
             this.lblCoordinateCode.TabIndex = 13;
             this.lblCoordinateCode.Text = "Coordinate code";
             // 
-            // textBox1
+            // txtOTPCode1
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(400, 226);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 22);
-            this.textBox1.TabIndex = 14;
+            this.txtOTPCode1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOTPCode1.Enabled = false;
+            this.txtOTPCode1.Location = new System.Drawing.Point(400, 226);
+            this.txtOTPCode1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtOTPCode1.Name = "txtOTPCode1";
+            this.txtOTPCode1.Size = new System.Drawing.Size(111, 22);
+            this.txtOTPCode1.TabIndex = 14;
             // 
-            // textBox2
+            // txtOTPCode2
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(400, 256);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(111, 22);
-            this.textBox2.TabIndex = 15;
+            this.txtOTPCode2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOTPCode2.Location = new System.Drawing.Point(400, 256);
+            this.txtOTPCode2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtOTPCode2.Name = "txtOTPCode2";
+            this.txtOTPCode2.Size = new System.Drawing.Size(111, 22);
+            this.txtOTPCode2.TabIndex = 15;
             // 
             // lblOtpCode
             // 
@@ -213,12 +214,12 @@ namespace Arduino_2FA
             // lblTimer
             // 
             this.lblTimer.AutoSize = true;
-            this.lblTimer.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.Red;
-            this.lblTimer.Location = new System.Drawing.Point(26, 160);
+            this.lblTimer.Location = new System.Drawing.Point(63, 155);
             this.lblTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(71, 22);
+            this.lblTimer.Size = new System.Drawing.Size(98, 48);
             this.lblTimer.TabIndex = 19;
             this.lblTimer.Text = "TIMER";
             // 
@@ -267,8 +268,8 @@ namespace Arduino_2FA
             this.Controls.Add(this.lblMissatge);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblOtpCode);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtOTPCode2);
+            this.Controls.Add(this.txtOTPCode1);
             this.Controls.Add(this.lblCoordinateCode);
             this.Controls.Add(this.btnVerify);
             this.Controls.Add(this.lblCoordinate);
@@ -307,8 +308,8 @@ namespace Arduino_2FA
         private System.Windows.Forms.Label lblCoordinate;
         private System.Windows.Forms.Button btnVerify;
         private System.Windows.Forms.Label lblCoordinateCode;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtOTPCode1;
+        private System.Windows.Forms.TextBox txtOTPCode2;
         private System.Windows.Forms.Label lblOtpCode;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblMissatge;

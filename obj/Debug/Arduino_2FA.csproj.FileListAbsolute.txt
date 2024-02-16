@@ -1,7 +1,6 @@
 C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\Arduino_2FA.exe.config
 C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\Arduino_2FA.exe
 C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\Arduino_2FA.pdb
-C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.csproj.AssemblyReference.cache
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frm_Coordenades.resources
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frm_Validation.resources
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frm_Central.resources
@@ -21,3 +20,4 @@ C:\Users\psegarra\Documents\GitHub\Arduino_2FA\obj\Debug\Arduino_2FA.csproj.Gene
 C:\Users\psegarra\Documents\GitHub\Arduino_2FA\obj\Debug\Arduino_2FA.csproj.CoreCompileInputs.cache
 C:\Users\psegarra\Documents\GitHub\Arduino_2FA\obj\Debug\Arduino_2FA.exe
 C:\Users\psegarra\Documents\GitHub\Arduino_2FA\obj\Debug\Arduino_2FA.pdb
+C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.csproj.AssemblyReference.cache

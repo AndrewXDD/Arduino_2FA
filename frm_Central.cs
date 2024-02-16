@@ -128,25 +128,33 @@ namespace Arduino_2FA
                     {
                         portArduino.PortName = nomPortSeleccionat;
                         portArduino.Open();
+                        SerialReceive();
+
+                        lblMissatge.Text = "Connexió a l'Arduino establerta correctament.";
                     }
                     catch (Exception ex)
                     {
                         lblMissatge.Text = "Error al obrir el port serie: " + ex.Message;
                     }
                 }
-
-                if (portArduino.IsOpen)
-                {
-                    lblMissatge.Text = "Connexió a l'Arduino establerta correctament.";
-                }
-                else
-                {
-                    lblMissatge.Text = "No s'ha pogut establir la connexió a l'Arduino.";
-                }
             }
             else
             {
                 lblMissatge.Text = "Selecciona un port serie abans d'enviar dades.";
+            }
+        }
+
+        private void btnVerify2_Click(object sender, EventArgs e)
+        {
+            txtOTPCode2.Text = response.Trim();
+
+            if (response.Trim() == otp.ToString())
+            {
+                pictureBoxImage2.Image = Properties.Resources.correcte;
+            }
+            else
+            {
+                pictureBoxImage2.Image = Properties.Resources.incorrecte;
             }
         }
     }

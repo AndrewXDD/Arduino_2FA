@@ -36,28 +36,29 @@ namespace Arduino_2FA
             this.txtCoordinateCode = new System.Windows.Forms.TextBox();
             this.lblCentralAuthentication = new System.Windows.Forms.Label();
             this.lblBaseAuthentication = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxImage1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblCoordinate = new System.Windows.Forms.Label();
-            this.btnVerify = new System.Windows.Forms.Button();
+            this.btnVerify1 = new System.Windows.Forms.Button();
             this.lblCoordinateCode = new System.Windows.Forms.Label();
             this.txtOTPCode1 = new System.Windows.Forms.TextBox();
             this.txtOTPCode2 = new System.Windows.Forms.TextBox();
             this.lblOtpCode = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxImage2 = new System.Windows.Forms.PictureBox();
             this.lblMissatge = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblPorts = new System.Windows.Forms.Label();
             this.cmbPorts = new System.Windows.Forms.ComboBox();
             this.btnConnect = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnVerify2 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(49, 109);
+            this.btnStart.Location = new System.Drawing.Point(30, 109);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(123, 38);
@@ -80,7 +81,7 @@ namespace Arduino_2FA
             // txtCoordinate
             // 
             this.txtCoordinate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCoordinate.Location = new System.Drawing.Point(400, 125);
+            this.txtCoordinate.Location = new System.Drawing.Point(365, 124);
             this.txtCoordinate.Margin = new System.Windows.Forms.Padding(4);
             this.txtCoordinate.Name = "txtCoordinate";
             this.txtCoordinate.Size = new System.Drawing.Size(111, 22);
@@ -89,7 +90,7 @@ namespace Arduino_2FA
             // txtCoordinateCode
             // 
             this.txtCoordinateCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCoordinateCode.Location = new System.Drawing.Point(400, 155);
+            this.txtCoordinateCode.Location = new System.Drawing.Point(365, 154);
             this.txtCoordinateCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtCoordinateCode.Name = "txtCoordinateCode";
             this.txtCoordinateCode.Size = new System.Drawing.Size(111, 22);
@@ -98,7 +99,7 @@ namespace Arduino_2FA
             // lblCentralAuthentication
             // 
             this.lblCentralAuthentication.AutoSize = true;
-            this.lblCentralAuthentication.Location = new System.Drawing.Point(243, 100);
+            this.lblCentralAuthentication.Location = new System.Drawing.Point(208, 99);
             this.lblCentralAuthentication.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCentralAuthentication.Name = "lblCentralAuthentication";
             this.lblCentralAuthentication.Size = new System.Drawing.Size(196, 17);
@@ -108,26 +109,26 @@ namespace Arduino_2FA
             // lblBaseAuthentication
             // 
             this.lblBaseAuthentication.AutoSize = true;
-            this.lblBaseAuthentication.Location = new System.Drawing.Point(243, 203);
+            this.lblBaseAuthentication.Location = new System.Drawing.Point(208, 202);
             this.lblBaseAuthentication.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBaseAuthentication.Name = "lblBaseAuthentication";
             this.lblBaseAuthentication.Size = new System.Drawing.Size(168, 17);
             this.lblBaseAuthentication.TabIndex = 5;
             this.lblBaseAuthentication.Text = "BASE AUTHENTICATION";
             // 
-            // pictureBox2
+            // pictureBoxImage1
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(628, 128);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(51, 49);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxImage1.Location = new System.Drawing.Point(593, 127);
+            this.pictureBoxImage1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxImage1.Name = "pictureBoxImage1";
+            this.pictureBoxImage1.Size = new System.Drawing.Size(51, 49);
+            this.pictureBoxImage1.TabIndex = 7;
+            this.pictureBoxImage1.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(243, 231);
+            this.label4.Location = new System.Drawing.Point(208, 230);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 17);
@@ -136,27 +137,27 @@ namespace Arduino_2FA
             // lblCoordinate
             // 
             this.lblCoordinate.AutoSize = true;
-            this.lblCoordinate.Location = new System.Drawing.Point(315, 128);
+            this.lblCoordinate.Location = new System.Drawing.Point(280, 127);
             this.lblCoordinate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCoordinate.Name = "lblCoordinate";
             this.lblCoordinate.Size = new System.Drawing.Size(77, 17);
             this.lblCoordinate.TabIndex = 11;
             this.lblCoordinate.Text = "Coordinate";
             // 
-            // btnVerify
+            // btnVerify1
             // 
-            this.btnVerify.Location = new System.Drawing.Point(519, 145);
-            this.btnVerify.Margin = new System.Windows.Forms.Padding(4);
-            this.btnVerify.Name = "btnVerify";
-            this.btnVerify.Size = new System.Drawing.Size(81, 32);
-            this.btnVerify.TabIndex = 12;
-            this.btnVerify.Text = "Verify";
-            this.btnVerify.UseVisualStyleBackColor = true;
+            this.btnVerify1.Location = new System.Drawing.Point(484, 144);
+            this.btnVerify1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerify1.Name = "btnVerify1";
+            this.btnVerify1.Size = new System.Drawing.Size(81, 32);
+            this.btnVerify1.TabIndex = 12;
+            this.btnVerify1.Text = "Verify";
+            this.btnVerify1.UseVisualStyleBackColor = true;
             // 
             // lblCoordinateCode
             // 
             this.lblCoordinateCode.AutoSize = true;
-            this.lblCoordinateCode.Location = new System.Drawing.Point(280, 155);
+            this.lblCoordinateCode.Location = new System.Drawing.Point(245, 154);
             this.lblCoordinateCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCoordinateCode.Name = "lblCoordinateCode";
             this.lblCoordinateCode.Size = new System.Drawing.Size(112, 17);
@@ -167,7 +168,7 @@ namespace Arduino_2FA
             // 
             this.txtOTPCode1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtOTPCode1.Enabled = false;
-            this.txtOTPCode1.Location = new System.Drawing.Point(400, 226);
+            this.txtOTPCode1.Location = new System.Drawing.Point(365, 225);
             this.txtOTPCode1.Margin = new System.Windows.Forms.Padding(4);
             this.txtOTPCode1.Name = "txtOTPCode1";
             this.txtOTPCode1.Size = new System.Drawing.Size(111, 22);
@@ -176,7 +177,7 @@ namespace Arduino_2FA
             // txtOTPCode2
             // 
             this.txtOTPCode2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtOTPCode2.Location = new System.Drawing.Point(400, 256);
+            this.txtOTPCode2.Location = new System.Drawing.Point(365, 255);
             this.txtOTPCode2.Margin = new System.Windows.Forms.Padding(4);
             this.txtOTPCode2.Name = "txtOTPCode2";
             this.txtOTPCode2.Size = new System.Drawing.Size(111, 22);
@@ -185,26 +186,26 @@ namespace Arduino_2FA
             // lblOtpCode
             // 
             this.lblOtpCode.AutoSize = true;
-            this.lblOtpCode.Location = new System.Drawing.Point(320, 258);
+            this.lblOtpCode.Location = new System.Drawing.Point(285, 257);
             this.lblOtpCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOtpCode.Name = "lblOtpCode";
             this.lblOtpCode.Size = new System.Drawing.Size(72, 17);
             this.lblOtpCode.TabIndex = 16;
             this.lblOtpCode.Text = "OTP code";
             // 
-            // pictureBox1
+            // pictureBoxImage2
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(628, 231);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(51, 49);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxImage2.Location = new System.Drawing.Point(593, 230);
+            this.pictureBoxImage2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxImage2.Name = "pictureBoxImage2";
+            this.pictureBoxImage2.Size = new System.Drawing.Size(51, 49);
+            this.pictureBoxImage2.TabIndex = 17;
+            this.pictureBoxImage2.TabStop = false;
             // 
             // lblMissatge
             // 
             this.lblMissatge.AutoSize = true;
-            this.lblMissatge.Location = new System.Drawing.Point(46, 315);
+            this.lblMissatge.Location = new System.Drawing.Point(27, 315);
             this.lblMissatge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMissatge.Name = "lblMissatge";
             this.lblMissatge.Size = new System.Drawing.Size(78, 17);
@@ -214,12 +215,12 @@ namespace Arduino_2FA
             // lblTimer
             // 
             this.lblTimer.AutoSize = true;
-            this.lblTimer.Font = new System.Drawing.Font("Bahnschrift Condensed", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Font = new System.Drawing.Font("Bahnschrift Condensed", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.ForeColor = System.Drawing.Color.Red;
-            this.lblTimer.Location = new System.Drawing.Point(54, 155);
+            this.lblTimer.Location = new System.Drawing.Point(31, 151);
             this.lblTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(98, 48);
+            this.lblTimer.Size = new System.Drawing.Size(93, 46);
             this.lblTimer.TabIndex = 19;
             this.lblTimer.Text = "TIMER";
             // 
@@ -231,7 +232,7 @@ namespace Arduino_2FA
             // lblPorts
             // 
             this.lblPorts.AutoSize = true;
-            this.lblPorts.Location = new System.Drawing.Point(435, 19);
+            this.lblPorts.Location = new System.Drawing.Point(400, 18);
             this.lblPorts.Name = "lblPorts";
             this.lblPorts.Size = new System.Drawing.Size(116, 17);
             this.lblPorts.TabIndex = 22;
@@ -241,14 +242,14 @@ namespace Arduino_2FA
             // 
             this.cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPorts.FormattingEnabled = true;
-            this.cmbPorts.Location = new System.Drawing.Point(438, 40);
+            this.cmbPorts.Location = new System.Drawing.Point(403, 39);
             this.cmbPorts.Name = "cmbPorts";
             this.cmbPorts.Size = new System.Drawing.Size(185, 24);
             this.cmbPorts.TabIndex = 21;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(638, 40);
+            this.btnConnect.Location = new System.Drawing.Point(603, 39);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(76, 24);
             this.btnConnect.TabIndex = 20;
@@ -256,25 +257,37 @@ namespace Arduino_2FA
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
+            // btnVerify2
+            // 
+            this.btnVerify2.Location = new System.Drawing.Point(484, 245);
+            this.btnVerify2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerify2.Name = "btnVerify2";
+            this.btnVerify2.Size = new System.Drawing.Size(81, 32);
+            this.btnVerify2.TabIndex = 23;
+            this.btnVerify2.Text = "Verify";
+            this.btnVerify2.UseVisualStyleBackColor = true;
+            this.btnVerify2.Click += new System.EventHandler(this.btnVerify2_Click);
+            // 
             // frm_Central
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 356);
+            this.ClientSize = new System.Drawing.Size(705, 356);
+            this.Controls.Add(this.btnVerify2);
             this.Controls.Add(this.lblPorts);
             this.Controls.Add(this.cmbPorts);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.lblMissatge);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxImage2);
             this.Controls.Add(this.lblOtpCode);
             this.Controls.Add(this.txtOTPCode2);
             this.Controls.Add(this.txtOTPCode1);
             this.Controls.Add(this.lblCoordinateCode);
-            this.Controls.Add(this.btnVerify);
+            this.Controls.Add(this.btnVerify1);
             this.Controls.Add(this.lblCoordinate);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBoxImage1);
             this.Controls.Add(this.lblBaseAuthentication);
             this.Controls.Add(this.lblCentralAuthentication);
             this.Controls.Add(this.txtCoordinateCode);
@@ -288,8 +301,8 @@ namespace Arduino_2FA
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frm_Central_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,20 +316,21 @@ namespace Arduino_2FA
         private System.Windows.Forms.TextBox txtCoordinateCode;
         private System.Windows.Forms.Label lblCentralAuthentication;
         private System.Windows.Forms.Label lblBaseAuthentication;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxImage1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblCoordinate;
-        private System.Windows.Forms.Button btnVerify;
+        private System.Windows.Forms.Button btnVerify1;
         private System.Windows.Forms.Label lblCoordinateCode;
         private System.Windows.Forms.TextBox txtOTPCode1;
         private System.Windows.Forms.TextBox txtOTPCode2;
         private System.Windows.Forms.Label lblOtpCode;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxImage2;
         private System.Windows.Forms.Label lblMissatge;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblPorts;
         private System.Windows.Forms.ComboBox cmbPorts;
         private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnVerify2;
     }
 }

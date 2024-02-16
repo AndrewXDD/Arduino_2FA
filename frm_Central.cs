@@ -28,6 +28,7 @@ namespace Arduino_2FA
         Thread filEscolta;
         int otp;
         int tempsRestant = 60000;
+        string response = "";
 
         private void frm_Central_Load(object sender, EventArgs e)
         {
@@ -36,12 +37,26 @@ namespace Arduino_2FA
             cmbPorts.Items.AddRange(ports);
         }
 
-        string response = "";
         private void ReceiveData()
         {
             while (portArduino.IsOpen)
             {
                 response = portArduino.ReadLine();
+
+                txtOTPCode2.Text = response.Trim();
+
+                if (response.Trim() == otp.ToString())
+                {
+                    pictureBoxImage2.Image = Properties.Resources.correcte;
+                }
+                else
+                {
+                    pictureBoxImage2.Image = Properties.Resources.incorrecte;
+                    if (portArduino.IsOpen)
+                    {
+                        portArduino.WriteLine("inici");
+                    }
+                }
             }
         }
 
@@ -141,20 +156,6 @@ namespace Arduino_2FA
             else
             {
                 lblMissatge.Text = "Selecciona un port serie abans d'enviar dades.";
-            }
-        }
-
-        private void btnVerify2_Click(object sender, EventArgs e)
-        {
-            txtOTPCode2.Text = response.Trim();
-
-            if (response.Trim() == otp.ToString())
-            {
-                pictureBoxImage2.Image = Properties.Resources.correcte;
-            }
-            else
-            {
-                pictureBoxImage2.Image = Properties.Resources.incorrecte;
             }
         }
     }

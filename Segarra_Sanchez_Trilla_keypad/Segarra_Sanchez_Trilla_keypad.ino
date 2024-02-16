@@ -29,6 +29,7 @@ unsigned long previousMillis = 0;
 const long interval = 1000;
 bool done = false;
 bool stringComplete = false;
+bool waiting = false;
 char inChar;
 
 void setup() {
@@ -47,7 +48,7 @@ void setup() {
 void loop() {
   unsigned long currentMillis = millis();
 
-  if(input == "inici"){
+  if(waiting == false && input == "inici"){
     if (!done && (currentMillis - previousMillis >= interval)) {
       previousMillis = currentMillis;
       temp--;
@@ -66,6 +67,7 @@ void loop() {
       } else if (customKey == '#') {
         done = true;
         Serial.println(password);
+        waiting = true;
       }
       if (!done) {
         Actualitzar(Encriptar(password), temp);
@@ -75,9 +77,10 @@ void loop() {
       lcd.print("Time is UP");
     }
   }
-  else{
-     lcd.print(input);
-  }
+  else if(input != "inici" && waiting == true){
+    lcd.clear();
+    lcd.print(input);
+  } 
 }
 
 String DarrerCaracter(String input) {
@@ -112,13 +115,14 @@ void Actualitzar(String input, int temp) {
 }
 
 void serialEvent() {
+  input = "";
   while (Serial.available()) {
     inChar = (char)Serial.read();
     if (inChar == '\n') {
       stringComplete = true;
       input = inputString;
       lcd.clear();
-      lcd.print("Starting...");
+      lcd.print("Procesing...");
       delay(2000);
     }
     else{

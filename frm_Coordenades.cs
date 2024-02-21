@@ -16,5 +16,10 @@ namespace Arduino_2FA
         {
             InitializeComponent();
         }
+
+        private void btnClosed_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace Arduino_2FA
 {
-    public partial class frm_Central : Form
+    public partial class frmCentral : Form
     {
-        public frm_Central()
+        public frmCentral()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
@@ -30,7 +30,7 @@ namespace Arduino_2FA
         int tempsRestant = 60000;
         string response = "";
 
-        private void frm_Central_Load(object sender, EventArgs e)
+        private void frmCentral_Load(object sender, EventArgs e)
         {
             cmbPorts.Items.Clear();
             string[] ports = SerialPort.GetPortNames();
@@ -47,15 +47,17 @@ namespace Arduino_2FA
 
                 if (response.Trim() == otp.ToString())
                 {
-                    pictureBoxImage2.Image = Properties.Resources.correcte;
+                    pictureBoxResultat2.Image = Properties.Resources.correcte;
+
+                    Thread.Sleep(4000);
+
+                    this.Close();
+                    frmValidation validation = new frmValidation();
+                    validation.Show();
                 }
                 else
                 {
-                    pictureBoxImage2.Image = Properties.Resources.incorrecte;
-                    if (portArduino.IsOpen)
-                    {
-                        portArduino.WriteLine("inici");
-                    }
+                    pictureBoxResultat2.Image = Properties.Resources.incorrecte;
                 }
             }
         }
@@ -157,6 +159,11 @@ namespace Arduino_2FA
             {
                 lblMissatge.Text = "Selecciona un port serie abans d'enviar dades.";
             }
+        }
+
+        private void btnClosed_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

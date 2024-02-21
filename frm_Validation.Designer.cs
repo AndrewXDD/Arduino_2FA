@@ -1,7 +1,7 @@
 ﻿
 namespace Arduino_2FA
 {
-    partial class frm_Validation
+    partial class frmValidation
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,172 +29,235 @@ namespace Arduino_2FA
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_UserCode = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btn_ShowInfo = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lbl_HeadTitle = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmValidation));
+            this.lblUserCode = new System.Windows.Forms.Label();
+            this.txtCodiUsuari = new System.Windows.Forms.TextBox();
+            this.txtQRCode = new System.Windows.Forms.TextBox();
+            this.btnShowInfo = new System.Windows.Forms.Button();
+            this.lblSequenceCode = new System.Windows.Forms.Label();
+            this.lblReaderQR = new System.Windows.Forms.Label();
+            this.lblQRCode = new System.Windows.Forms.Label();
+            this.lblHeadTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_CheckQR = new System.Windows.Forms.Button();
+            this.btnCheckQR = new System.Windows.Forms.Button();
+            this.pictureBoxCamera = new System.Windows.Forms.PictureBox();
+            this.lblCamera = new System.Windows.Forms.Label();
+            this.cmbDevice = new System.Windows.Forms.ComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnClosed = new System.Windows.Forms.PictureBox();
+            this.txtNomComplertUsuari = new System.Windows.Forms.TextBox();
+            this.txtSequenceCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClosed)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbl_UserCode
+            // lblUserCode
             // 
-            this.lbl_UserCode.AutoSize = true;
-            this.lbl_UserCode.Location = new System.Drawing.Point(145, 159);
-            this.lbl_UserCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_UserCode.Name = "lbl_UserCode";
-            this.lbl_UserCode.Size = new System.Drawing.Size(75, 17);
-            this.lbl_UserCode.TabIndex = 0;
-            this.lbl_UserCode.Text = "User Code";
+            this.lblUserCode.AutoSize = true;
+            this.lblUserCode.Location = new System.Drawing.Point(358, 99);
+            this.lblUserCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserCode.Name = "lblUserCode";
+            this.lblUserCode.Size = new System.Drawing.Size(83, 17);
+            this.lblUserCode.TabIndex = 0;
+            this.lblUserCode.Text = "User Name:";
             // 
-            // textBox1
+            // txtCodiUsuari
             // 
-            this.textBox1.Location = new System.Drawing.Point(229, 155);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(64, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtCodiUsuari.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCodiUsuari.Location = new System.Drawing.Point(449, 96);
+            this.txtCodiUsuari.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodiUsuari.Name = "txtCodiUsuari";
+            this.txtCodiUsuari.Size = new System.Drawing.Size(64, 22);
+            this.txtCodiUsuari.TabIndex = 1;
             // 
-            // textBox2
+            // txtQRCode
             // 
-            this.textBox2.Location = new System.Drawing.Point(303, 155);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 22);
-            this.textBox2.TabIndex = 2;
+            this.txtQRCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQRCode.Enabled = false;
+            this.txtQRCode.Location = new System.Drawing.Point(651, 190);
+            this.txtQRCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtQRCode.Multiline = true;
+            this.txtQRCode.Name = "txtQRCode";
+            this.txtQRCode.Size = new System.Drawing.Size(181, 329);
+            this.txtQRCode.TabIndex = 2;
             // 
-            // btn_ShowInfo
+            // btnShowInfo
             // 
-            this.btn_ShowInfo.Location = new System.Drawing.Point(493, 145);
-            this.btn_ShowInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_ShowInfo.Name = "btn_ShowInfo";
-            this.btn_ShowInfo.Size = new System.Drawing.Size(137, 42);
-            this.btn_ShowInfo.TabIndex = 3;
-            this.btn_ShowInfo.Text = "Show Info";
-            this.btn_ShowInfo.UseVisualStyleBackColor = true;
+            this.btnShowInfo.Location = new System.Drawing.Point(695, 96);
+            this.btnShowInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowInfo.Name = "btnShowInfo";
+            this.btnShowInfo.Size = new System.Drawing.Size(137, 42);
+            this.btnShowInfo.TabIndex = 3;
+            this.btnShowInfo.Text = "Show Info";
+            this.btnShowInfo.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // lblSequenceCode
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(112, 235);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(180, 329);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lblSequenceCode.AutoSize = true;
+            this.lblSequenceCode.Font = new System.Drawing.Font("Lucida Bright", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lblSequenceCode.Location = new System.Drawing.Point(17, 170);
+            this.lblSequenceCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSequenceCode.Name = "lblSequenceCode";
+            this.lblSequenceCode.Size = new System.Drawing.Size(166, 16);
+            this.lblSequenceCode.TabIndex = 8;
+            this.lblSequenceCode.Text = "Code Chain Sequence";
             // 
-            // listView3
+            // lblReaderQR
             // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(699, 235);
-            this.listView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(180, 329);
-            this.listView3.TabIndex = 6;
-            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.lblReaderQR.AutoSize = true;
+            this.lblReaderQR.Font = new System.Drawing.Font("Lucida Bright", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lblReaderQR.Location = new System.Drawing.Point(208, 170);
+            this.lblReaderQR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblReaderQR.Name = "lblReaderQR";
+            this.lblReaderQR.Size = new System.Drawing.Size(84, 16);
+            this.lblReaderQR.TabIndex = 9;
+            this.lblReaderQR.Text = "QR Reader";
             // 
-            // panel1
+            // lblQRCode
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(336, 235);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(315, 329);
-            this.panel1.TabIndex = 7;
+            this.lblQRCode.AutoSize = true;
+            this.lblQRCode.Font = new System.Drawing.Font("Lucida Bright", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.lblQRCode.Location = new System.Drawing.Point(647, 170);
+            this.lblQRCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblQRCode.Name = "lblQRCode";
+            this.lblQRCode.Size = new System.Drawing.Size(134, 16);
+            this.lblQRCode.TabIndex = 10;
+            this.lblQRCode.Text = "Code Chain in QR";
             // 
-            // label2
+            // lblHeadTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(108, 215);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Code Viewer";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(333, 215);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 17);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "QR Viewer";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(695, 215);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 17);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Algo Viewer";
-            // 
-            // lbl_HeadTitle
-            // 
-            this.lbl_HeadTitle.AutoSize = true;
-            this.lbl_HeadTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_HeadTitle.Location = new System.Drawing.Point(241, 60);
-            this.lbl_HeadTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_HeadTitle.Name = "lbl_HeadTitle";
-            this.lbl_HeadTitle.Size = new System.Drawing.Size(439, 42);
-            this.lbl_HeadTitle.TabIndex = 11;
-            this.lbl_HeadTitle.Text = "Sistema de validació 2FA";
+            this.lblHeadTitle.AutoSize = true;
+            this.lblHeadTitle.Font = new System.Drawing.Font("Lucida Bright", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeadTitle.Location = new System.Drawing.Point(90, 34);
+            this.lblHeadTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHeadTitle.Name = "lblHeadTitle";
+            this.lblHeadTitle.Size = new System.Drawing.Size(571, 34);
+            this.lblHeadTitle.TabIndex = 11;
+            this.lblHeadTitle.Text = "CODE CHAIN VALIDATION  SYSTEM";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(168, 47);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(24, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 55);
+            this.pictureBox1.Size = new System.Drawing.Size(58, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
-            // btn_CheckQR
+            // btnCheckQR
             // 
-            this.btn_CheckQR.Location = new System.Drawing.Point(633, 585);
-            this.btn_CheckQR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btn_CheckQR.Name = "btn_CheckQR";
-            this.btn_CheckQR.Size = new System.Drawing.Size(247, 62);
-            this.btn_CheckQR.TabIndex = 13;
-            this.btn_CheckQR.Text = "Check Code Chain";
-            this.btn_CheckQR.UseVisualStyleBackColor = true;
+            this.btnCheckQR.Location = new System.Drawing.Point(211, 537);
+            this.btnCheckQR.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCheckQR.Name = "btnCheckQR";
+            this.btnCheckQR.Size = new System.Drawing.Size(182, 62);
+            this.btnCheckQR.TabIndex = 13;
+            this.btnCheckQR.Text = "Check Code Chain";
+            this.btnCheckQR.UseVisualStyleBackColor = true;
+            this.btnCheckQR.Click += new System.EventHandler(this.btn_CheckQR_Click);
             // 
-            // frm_Validation
+            // pictureBoxCamera
+            // 
+            this.pictureBoxCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxCamera.Location = new System.Drawing.Point(211, 190);
+            this.pictureBoxCamera.Name = "pictureBoxCamera";
+            this.pictureBoxCamera.Size = new System.Drawing.Size(433, 329);
+            this.pictureBoxCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCamera.TabIndex = 14;
+            this.pictureBoxCamera.TabStop = false;
+            // 
+            // lblCamera
+            // 
+            this.lblCamera.AutoSize = true;
+            this.lblCamera.Location = new System.Drawing.Point(21, 99);
+            this.lblCamera.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCamera.Name = "lblCamera";
+            this.lblCamera.Size = new System.Drawing.Size(61, 17);
+            this.lblCamera.TabIndex = 15;
+            this.lblCamera.Text = "Camera:";
+            // 
+            // cmbDevice
+            // 
+            this.cmbDevice.FormattingEnabled = true;
+            this.cmbDevice.Location = new System.Drawing.Point(89, 96);
+            this.cmbDevice.Name = "cmbDevice";
+            this.cmbDevice.Size = new System.Drawing.Size(229, 24);
+            this.cmbDevice.TabIndex = 16;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnClosed
+            // 
+            this.btnClosed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClosed.BackColor = System.Drawing.Color.Transparent;
+            this.btnClosed.Image = ((System.Drawing.Image)(resources.GetObject("btnClosed.Image")));
+            this.btnClosed.Location = new System.Drawing.Point(823, 0);
+            this.btnClosed.Name = "btnClosed";
+            this.btnClosed.Size = new System.Drawing.Size(30, 34);
+            this.btnClosed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnClosed.TabIndex = 24;
+            this.btnClosed.TabStop = false;
+            this.btnClosed.Click += new System.EventHandler(this.btnClosed_Click);
+            // 
+            // txtNomComplertUsuari
+            // 
+            this.txtNomComplertUsuari.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNomComplertUsuari.Enabled = false;
+            this.txtNomComplertUsuari.Location = new System.Drawing.Point(521, 96);
+            this.txtNomComplertUsuari.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNomComplertUsuari.Name = "txtNomComplertUsuari";
+            this.txtNomComplertUsuari.Size = new System.Drawing.Size(158, 22);
+            this.txtNomComplertUsuari.TabIndex = 25;
+            // 
+            // txtSequenceCode
+            // 
+            this.txtSequenceCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSequenceCode.Enabled = false;
+            this.txtSequenceCode.Location = new System.Drawing.Point(20, 190);
+            this.txtSequenceCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSequenceCode.Multiline = true;
+            this.txtSequenceCode.Name = "txtSequenceCode";
+            this.txtSequenceCode.Size = new System.Drawing.Size(181, 329);
+            this.txtSequenceCode.TabIndex = 26;
+            // 
+            // frmValidation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 695);
+            this.ClientSize = new System.Drawing.Size(853, 615);
+            this.Controls.Add(this.txtSequenceCode);
+            this.Controls.Add(this.txtNomComplertUsuari);
+            this.Controls.Add(this.btnClosed);
+            this.Controls.Add(this.cmbDevice);
+            this.Controls.Add(this.lblCamera);
+            this.Controls.Add(this.pictureBoxCamera);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lbl_HeadTitle);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.listView3);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.btn_ShowInfo);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lbl_UserCode);
-            this.Controls.Add(this.btn_CheckQR);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.lblHeadTitle);
+            this.Controls.Add(this.lblQRCode);
+            this.Controls.Add(this.lblReaderQR);
+            this.Controls.Add(this.lblSequenceCode);
+            this.Controls.Add(this.btnShowInfo);
+            this.Controls.Add(this.txtQRCode);
+            this.Controls.Add(this.txtCodiUsuari);
+            this.Controls.Add(this.lblUserCode);
+            this.Controls.Add(this.btnCheckQR);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frm_Validation";
+            this.Name = "frmValidation";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmValidation_FormClosing);
+            this.Load += new System.EventHandler(this.frmValidation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClosed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,19 +265,23 @@ namespace Arduino_2FA
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_UserCode;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btn_ShowInfo;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lbl_HeadTitle;
+        private System.Windows.Forms.Label lblUserCode;
+        private System.Windows.Forms.TextBox txtCodiUsuari;
+        private System.Windows.Forms.TextBox txtQRCode;
+        private System.Windows.Forms.Button btnShowInfo;
+        private System.Windows.Forms.Label lblSequenceCode;
+        private System.Windows.Forms.Label lblReaderQR;
+        private System.Windows.Forms.Label lblQRCode;
+        private System.Windows.Forms.Label lblHeadTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btn_CheckQR;
+        private System.Windows.Forms.Button btnCheckQR;
+        private System.Windows.Forms.PictureBox pictureBoxCamera;
+        private System.Windows.Forms.Label lblCamera;
+        private System.Windows.Forms.ComboBox cmbDevice;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox btnClosed;
+        private System.Windows.Forms.TextBox txtNomComplertUsuari;
+        private System.Windows.Forms.TextBox txtSequenceCode;
     }
 }
 

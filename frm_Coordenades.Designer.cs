@@ -29,22 +29,43 @@ namespace Arduino_2FA
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Coordenades));
+            this.btnClosed = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClosed)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnClosed
+            // 
+            this.btnClosed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClosed.BackColor = System.Drawing.Color.Transparent;
+            this.btnClosed.Image = ((System.Drawing.Image)(resources.GetObject("btnClosed.Image")));
+            this.btnClosed.Location = new System.Drawing.Point(770, 0);
+            this.btnClosed.Name = "btnClosed";
+            this.btnClosed.Size = new System.Drawing.Size(30, 34);
+            this.btnClosed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnClosed.TabIndex = 25;
+            this.btnClosed.TabStop = false;
+            this.btnClosed.Click += new System.EventHandler(this.btnClosed_Click);
             // 
             // frm_Coordenades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnClosed);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Coordenades";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            ((System.ComponentModel.ISupportInitialize)(this.btnClosed)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox btnClosed;
     }
 }

@@ -2,8 +2,6 @@ C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\Arduino_2FA.exe.config
 C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\Arduino_2FA.exe
 C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\Arduino_2FA.pdb
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frm_Coordenades.resources
-C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frm_Validation.resources
-C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frm_Central.resources
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.Properties.Resources.resources
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.csproj.GenerateResource.cache
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.csproj.CoreCompileInputs.cache
@@ -21,3 +19,16 @@ C:\Users\psegarra\Documents\GitHub\Arduino_2FA\obj\Debug\Arduino_2FA.csproj.Core
 C:\Users\psegarra\Documents\GitHub\Arduino_2FA\obj\Debug\Arduino_2FA.exe
 C:\Users\psegarra\Documents\GitHub\Arduino_2FA\obj\Debug\Arduino_2FA.pdb
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.csproj.AssemblyReference.cache
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\AForge.dll
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\AForge.Video.DirectShow.dll
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\AForge.Video.dll
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\zxing.dll
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\zxing.presentation.dll
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\AForge.xml
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\AForge.Video.xml
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\AForge.Video.DirectShow.xml
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\zxing.xml
+C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\zxing.presentation.xml
+C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.csproj.CopyComplete
+C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frmValidation.resources
+C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frmCentral.resources

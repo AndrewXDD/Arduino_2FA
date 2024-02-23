@@ -1,7 +1,7 @@
 ﻿
 namespace Arduino_2FA
 {
-    partial class frm_Coordenades
+    partial class frmCoordenades
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Arduino_2FA
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Coordenades));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCoordenades));
             this.btnClosed = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnClosed)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +47,7 @@ namespace Arduino_2FA
             this.btnClosed.TabStop = false;
             this.btnClosed.Click += new System.EventHandler(this.btnClosed_Click);
             // 
-            // frm_Coordenades
+            // frmCoordenades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -56,7 +56,7 @@ namespace Arduino_2FA
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frm_Coordenades";
+            this.Name = "frmCoordenades";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.btnClosed)).EndInit();

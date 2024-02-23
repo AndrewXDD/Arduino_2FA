@@ -16,7 +16,7 @@ namespace Arduino_2FA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmValidation());
+            Application.Run(new frmCentral());
         }
     }
 }

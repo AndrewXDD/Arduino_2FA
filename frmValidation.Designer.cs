@@ -39,7 +39,6 @@ namespace Arduino_2FA
             this.lblReaderQR = new System.Windows.Forms.Label();
             this.lblQRCode = new System.Windows.Forms.Label();
             this.lblHeadTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCheckQR = new System.Windows.Forms.Button();
             this.pictureBoxCamera = new System.Windows.Forms.PictureBox();
             this.lblCamera = new System.Windows.Forms.Label();
@@ -48,7 +47,7 @@ namespace Arduino_2FA
             this.btnClosed = new System.Windows.Forms.PictureBox();
             this.txtNomComplertUsuari = new System.Windows.Forms.TextBox();
             this.txtSequenceCode = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnGenerateQR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClosed)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +91,7 @@ namespace Arduino_2FA
             this.btnShowInfo.TabIndex = 3;
             this.btnShowInfo.Text = "Show Info";
             this.btnShowInfo.UseVisualStyleBackColor = true;
+            this.btnShowInfo.Click += new System.EventHandler(this.btnShowInfo_Click);
             // 
             // lblSequenceCode
             // 
@@ -130,22 +130,12 @@ namespace Arduino_2FA
             // 
             this.lblHeadTitle.AutoSize = true;
             this.lblHeadTitle.Font = new System.Drawing.Font("Lucida Bright", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeadTitle.Location = new System.Drawing.Point(90, 34);
+            this.lblHeadTitle.Location = new System.Drawing.Point(18, 35);
             this.lblHeadTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeadTitle.Name = "lblHeadTitle";
             this.lblHeadTitle.Size = new System.Drawing.Size(571, 34);
             this.lblHeadTitle.TabIndex = 11;
             this.lblHeadTitle.Text = "CODE CHAIN VALIDATION  SYSTEM";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(24, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(58, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
             // 
             // btnCheckQR
             // 
@@ -164,7 +154,7 @@ namespace Arduino_2FA
             this.pictureBoxCamera.Location = new System.Drawing.Point(211, 190);
             this.pictureBoxCamera.Name = "pictureBoxCamera";
             this.pictureBoxCamera.Size = new System.Drawing.Size(433, 329);
-            this.pictureBoxCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCamera.TabIndex = 14;
             this.pictureBoxCamera.TabStop = false;
             // 
@@ -217,7 +207,6 @@ namespace Arduino_2FA
             // txtSequenceCode
             // 
             this.txtSequenceCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSequenceCode.Enabled = false;
             this.txtSequenceCode.Location = new System.Drawing.Point(20, 190);
             this.txtSequenceCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtSequenceCode.Multiline = true;
@@ -225,18 +214,29 @@ namespace Arduino_2FA
             this.txtSequenceCode.Size = new System.Drawing.Size(181, 329);
             this.txtSequenceCode.TabIndex = 26;
             // 
+            // btnGenerateQR
+            // 
+            this.btnGenerateQR.Location = new System.Drawing.Point(401, 537);
+            this.btnGenerateQR.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGenerateQR.Name = "btnGenerateQR";
+            this.btnGenerateQR.Size = new System.Drawing.Size(182, 62);
+            this.btnGenerateQR.TabIndex = 27;
+            this.btnGenerateQR.Text = "Generate QR";
+            this.btnGenerateQR.UseVisualStyleBackColor = true;
+            this.btnGenerateQR.Click += new System.EventHandler(this.btnGenerateQR_Click);
+            // 
             // frmValidation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(853, 615);
+            this.Controls.Add(this.btnGenerateQR);
             this.Controls.Add(this.txtSequenceCode);
             this.Controls.Add(this.txtNomComplertUsuari);
             this.Controls.Add(this.btnClosed);
             this.Controls.Add(this.cmbDevice);
             this.Controls.Add(this.lblCamera);
             this.Controls.Add(this.pictureBoxCamera);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblHeadTitle);
             this.Controls.Add(this.lblQRCode);
             this.Controls.Add(this.lblReaderQR);
@@ -255,7 +255,6 @@ namespace Arduino_2FA
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmValidation_FormClosing);
             this.Load += new System.EventHandler(this.frmValidation_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClosed)).EndInit();
             this.ResumeLayout(false);
@@ -273,7 +272,6 @@ namespace Arduino_2FA
         private System.Windows.Forms.Label lblReaderQR;
         private System.Windows.Forms.Label lblQRCode;
         private System.Windows.Forms.Label lblHeadTitle;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCheckQR;
         private System.Windows.Forms.PictureBox pictureBoxCamera;
         private System.Windows.Forms.Label lblCamera;
@@ -282,6 +280,7 @@ namespace Arduino_2FA
         private System.Windows.Forms.PictureBox btnClosed;
         private System.Windows.Forms.TextBox txtNomComplertUsuari;
         private System.Windows.Forms.TextBox txtSequenceCode;
+        private System.Windows.Forms.Button btnGenerateQR;
     }
 }
 

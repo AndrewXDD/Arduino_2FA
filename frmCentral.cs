@@ -48,12 +48,7 @@ namespace Arduino_2FA
                 if (response.Trim() == otp.ToString())
                 {
                     pictureBoxResultat2.Image = Properties.Resources.correcte;
-
-                    Thread.Sleep(4000);
-
-                    this.Close();
-                    frmValidation validation = new frmValidation();
-                    validation.Show();
+                    timer1.Stop();
                 }
                 else
                 {
@@ -164,6 +159,12 @@ namespace Arduino_2FA
         private void btnClosed_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnVerify2_Click(object sender, EventArgs e)
+        {
+            frmValidation frm = new frmValidation();
+            frm.Show();
         }
     }
 }

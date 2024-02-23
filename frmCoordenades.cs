@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Arduino_2FA
 {
-    public partial class frm_Coordenades : Form
+    public partial class frmCoordenades : Form
     {
-        public frm_Coordenades()
+        public frmCoordenades()
         {
             InitializeComponent();
         }

@@ -19,48 +19,50 @@ namespace Arduino_2FA
         public frmCentral()
         {
             InitializeComponent();
-            Control.CheckForIllegalCrossThreadCalls = false;
-            portArduino = new SerialPort();
-            timer1.Interval = 10;
         }
 
-        SerialPort portArduino;
-        Thread filEscolta;
-        int otp;
-        int tempsRestant = 60000;
-        string response = "";
+        private SerialPort portArduino;
+        private Thread filEscolta;
+        private int otp;
+        private int tempsRestant = 60000;
+        private string response = "";
 
         private void frmCentral_Load(object sender, EventArgs e)
         {
+            portArduino = new SerialPort();
+            timer1.Interval = 10;
+
             cmbPorts.Items.Clear();
             string[] ports = SerialPort.GetPortNames();
             cmbPorts.Items.AddRange(ports);
         }
 
-        private void ReceiveData()
+        private void btnConnect_Click(object sender, EventArgs e)
         {
-            while (portArduino.IsOpen)
+            if (cmbPorts.SelectedItem != null)
             {
-                response = portArduino.ReadLine();
+                string nomPortSeleccionat = cmbPorts.SelectedItem.ToString();
 
-                txtOTPCode2.Text = response.Trim();
+                while (!portArduino.IsOpen)
+                {
+                    try
+                    {
+                        portArduino.PortName = nomPortSeleccionat;
+                        portArduino.Open();
+                        SerialReceive();
 
-                if (response.Trim() == otp.ToString())
-                {
-                    pictureBoxResultat2.Image = Properties.Resources.correcte;
-                    timer1.Stop();
-                }
-                else
-                {
-                    pictureBoxResultat2.Image = Properties.Resources.incorrecte;
+                        lblMissatge.Text = "Connexió a l'Arduino establerta correctament.";
+                    }
+                    catch (Exception ex)
+                    {
+                        lblMissatge.Text = "Error al obrir el port serie: " + ex.Message;
+                    }
                 }
             }
-        }
-
-        private void SerialReceive()
-        {
-            filEscolta = new Thread(ReceiveData);
-            filEscolta.Start();
+            else
+            {
+                lblMissatge.Text = "Selecciona un port serie abans d'enviar dades.";
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -80,6 +82,59 @@ namespace Arduino_2FA
             lblMissatge.Text = "S'ha enviat el codi OPT per correu electrònic.";
 
             timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            tempsRestant -= timer1.Interval;
+
+            if (tempsRestant >= 0)
+            {
+                int segons = tempsRestant / 1000;
+                int milisegons = (tempsRestant % 1000) / 10;
+                lblTimer.Text = string.Format("{0:D2} : {1:D2}", segons, milisegons);
+            }
+            else
+            {
+                timer1.Stop();
+                lblTimer.Text = "NO TIME";
+            }
+        }
+
+        private void btnVerify2_Click(object sender, EventArgs e)
+        {
+            frmValidation frm = new frmValidation();
+            frm.Show();
+        }
+
+        private void btnClosed_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ReceiveData()
+        {
+            while (portArduino.IsOpen)
+            {
+                response = portArduino.ReadLine();
+                MostrarInfoTextBox(txtOTPCode2, response.Trim());
+
+                if (response.Trim() == otp.ToString())
+                {
+                    pictureBoxResultat2.Image = Properties.Resources.correcte;
+                    timer1.Stop();
+                }
+                else
+                {
+                    pictureBoxResultat2.Image = Properties.Resources.incorrecte;
+                }
+            }
+        }
+
+        private void SerialReceive()
+        {
+            filEscolta = new Thread(ReceiveData);
+            filEscolta.Start();
         }
 
         private void EnviarCorreu()
@@ -111,60 +166,19 @@ namespace Arduino_2FA
             client.Send(mail);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void MostrarInfoTextBox(TextBox txt, string response)
         {
-            tempsRestant -= timer1.Interval;
-
-            if (tempsRestant >= 0)
+            if (txt.InvokeRequired)
             {
-                int segons = tempsRestant / 1000;
-                int milisegons = (tempsRestant % 1000) / 10;
-                lblTimer.Text = string.Format("{0:D2} : {1:D2}", segons, milisegons);
-            }
-            else
-            {
-                timer1.Stop();
-                lblTimer.Text = "NO TIME";
-            }
-        }
-
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-            if (cmbPorts.SelectedItem != null)
-            {
-                string nomPortSeleccionat = cmbPorts.SelectedItem.ToString();
-
-                while (!portArduino.IsOpen)
+                txt.Invoke((MethodInvoker)delegate
                 {
-                    try
-                    {
-                        portArduino.PortName = nomPortSeleccionat;
-                        portArduino.Open();
-                        SerialReceive();
-
-                        lblMissatge.Text = "Connexió a l'Arduino establerta correctament.";
-                    }
-                    catch (Exception ex)
-                    {
-                        lblMissatge.Text = "Error al obrir el port serie: " + ex.Message;
-                    }
-                }
+                    txt.Text = response;
+                });
             }
             else
             {
-                lblMissatge.Text = "Selecciona un port serie abans d'enviar dades.";
+                txt.Text = response;
             }
-        }
-
-        private void btnClosed_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnVerify2_Click(object sender, EventArgs e)
-        {
-            frmValidation frm = new frmValidation();
-            frm.Show();
         }
     }
 }

@@ -45,9 +45,10 @@ namespace Arduino_2FA
             this.cmbDevice = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnClosed = new System.Windows.Forms.PictureBox();
-            this.txtNomComplertUsuari = new System.Windows.Forms.TextBox();
+            this.txtNomCompletUsuari = new System.Windows.Forms.TextBox();
             this.txtSequenceCode = new System.Windows.Forms.TextBox();
             this.btnGenerateQR = new System.Windows.Forms.Button();
+            this.lblMissatge = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCamera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClosed)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,7 @@ namespace Arduino_2FA
             // lblUserCode
             // 
             this.lblUserCode.AutoSize = true;
-            this.lblUserCode.Location = new System.Drawing.Point(358, 99);
+            this.lblUserCode.Location = new System.Drawing.Point(323, 79);
             this.lblUserCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserCode.Name = "lblUserCode";
             this.lblUserCode.Size = new System.Drawing.Size(83, 17);
@@ -65,17 +66,17 @@ namespace Arduino_2FA
             // txtCodiUsuari
             // 
             this.txtCodiUsuari.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCodiUsuari.Location = new System.Drawing.Point(449, 96);
+            this.txtCodiUsuari.Location = new System.Drawing.Point(414, 76);
             this.txtCodiUsuari.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodiUsuari.Name = "txtCodiUsuari";
-            this.txtCodiUsuari.Size = new System.Drawing.Size(64, 22);
+            this.txtCodiUsuari.Size = new System.Drawing.Size(107, 22);
             this.txtCodiUsuari.TabIndex = 1;
             // 
             // txtQRCode
             // 
             this.txtQRCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQRCode.Enabled = false;
-            this.txtQRCode.Location = new System.Drawing.Point(651, 190);
+            this.txtQRCode.Location = new System.Drawing.Point(651, 163);
             this.txtQRCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtQRCode.Multiline = true;
             this.txtQRCode.Name = "txtQRCode";
@@ -84,7 +85,7 @@ namespace Arduino_2FA
             // 
             // btnShowInfo
             // 
-            this.btnShowInfo.Location = new System.Drawing.Point(695, 96);
+            this.btnShowInfo.Location = new System.Drawing.Point(695, 76);
             this.btnShowInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowInfo.Name = "btnShowInfo";
             this.btnShowInfo.Size = new System.Drawing.Size(137, 42);
@@ -97,7 +98,7 @@ namespace Arduino_2FA
             // 
             this.lblSequenceCode.AutoSize = true;
             this.lblSequenceCode.Font = new System.Drawing.Font("Lucida Bright", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblSequenceCode.Location = new System.Drawing.Point(17, 170);
+            this.lblSequenceCode.Location = new System.Drawing.Point(17, 143);
             this.lblSequenceCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSequenceCode.Name = "lblSequenceCode";
             this.lblSequenceCode.Size = new System.Drawing.Size(166, 16);
@@ -108,7 +109,7 @@ namespace Arduino_2FA
             // 
             this.lblReaderQR.AutoSize = true;
             this.lblReaderQR.Font = new System.Drawing.Font("Lucida Bright", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblReaderQR.Location = new System.Drawing.Point(208, 170);
+            this.lblReaderQR.Location = new System.Drawing.Point(208, 143);
             this.lblReaderQR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblReaderQR.Name = "lblReaderQR";
             this.lblReaderQR.Size = new System.Drawing.Size(84, 16);
@@ -119,7 +120,7 @@ namespace Arduino_2FA
             // 
             this.lblQRCode.AutoSize = true;
             this.lblQRCode.Font = new System.Drawing.Font("Lucida Bright", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.lblQRCode.Location = new System.Drawing.Point(647, 170);
+            this.lblQRCode.Location = new System.Drawing.Point(647, 143);
             this.lblQRCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblQRCode.Name = "lblQRCode";
             this.lblQRCode.Size = new System.Drawing.Size(134, 16);
@@ -130,7 +131,7 @@ namespace Arduino_2FA
             // 
             this.lblHeadTitle.AutoSize = true;
             this.lblHeadTitle.Font = new System.Drawing.Font("Lucida Bright", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeadTitle.Location = new System.Drawing.Point(18, 35);
+            this.lblHeadTitle.Location = new System.Drawing.Point(18, 20);
             this.lblHeadTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHeadTitle.Name = "lblHeadTitle";
             this.lblHeadTitle.Size = new System.Drawing.Size(571, 34);
@@ -139,7 +140,7 @@ namespace Arduino_2FA
             // 
             // btnCheckQR
             // 
-            this.btnCheckQR.Location = new System.Drawing.Point(211, 537);
+            this.btnCheckQR.Location = new System.Drawing.Point(211, 510);
             this.btnCheckQR.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheckQR.Name = "btnCheckQR";
             this.btnCheckQR.Size = new System.Drawing.Size(182, 62);
@@ -151,7 +152,7 @@ namespace Arduino_2FA
             // pictureBoxCamera
             // 
             this.pictureBoxCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxCamera.Location = new System.Drawing.Point(211, 190);
+            this.pictureBoxCamera.Location = new System.Drawing.Point(211, 163);
             this.pictureBoxCamera.Name = "pictureBoxCamera";
             this.pictureBoxCamera.Size = new System.Drawing.Size(433, 329);
             this.pictureBoxCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -161,7 +162,7 @@ namespace Arduino_2FA
             // lblCamera
             // 
             this.lblCamera.AutoSize = true;
-            this.lblCamera.Location = new System.Drawing.Point(21, 99);
+            this.lblCamera.Location = new System.Drawing.Point(21, 79);
             this.lblCamera.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCamera.Name = "lblCamera";
             this.lblCamera.Size = new System.Drawing.Size(61, 17);
@@ -171,9 +172,9 @@ namespace Arduino_2FA
             // cmbDevice
             // 
             this.cmbDevice.FormattingEnabled = true;
-            this.cmbDevice.Location = new System.Drawing.Point(89, 96);
+            this.cmbDevice.Location = new System.Drawing.Point(89, 76);
             this.cmbDevice.Name = "cmbDevice";
-            this.cmbDevice.Size = new System.Drawing.Size(229, 24);
+            this.cmbDevice.Size = new System.Drawing.Size(188, 24);
             this.cmbDevice.TabIndex = 16;
             // 
             // timer1
@@ -194,20 +195,20 @@ namespace Arduino_2FA
             this.btnClosed.TabStop = false;
             this.btnClosed.Click += new System.EventHandler(this.btnClosed_Click);
             // 
-            // txtNomComplertUsuari
+            // txtNomCompletUsuari
             // 
-            this.txtNomComplertUsuari.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNomComplertUsuari.Enabled = false;
-            this.txtNomComplertUsuari.Location = new System.Drawing.Point(521, 96);
-            this.txtNomComplertUsuari.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNomComplertUsuari.Name = "txtNomComplertUsuari";
-            this.txtNomComplertUsuari.Size = new System.Drawing.Size(158, 22);
-            this.txtNomComplertUsuari.TabIndex = 25;
+            this.txtNomCompletUsuari.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNomCompletUsuari.Enabled = false;
+            this.txtNomCompletUsuari.Location = new System.Drawing.Point(529, 76);
+            this.txtNomCompletUsuari.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNomCompletUsuari.Name = "txtNomCompletUsuari";
+            this.txtNomCompletUsuari.Size = new System.Drawing.Size(158, 22);
+            this.txtNomCompletUsuari.TabIndex = 25;
             // 
             // txtSequenceCode
             // 
             this.txtSequenceCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSequenceCode.Location = new System.Drawing.Point(20, 190);
+            this.txtSequenceCode.Location = new System.Drawing.Point(20, 163);
             this.txtSequenceCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtSequenceCode.Multiline = true;
             this.txtSequenceCode.Name = "txtSequenceCode";
@@ -216,7 +217,7 @@ namespace Arduino_2FA
             // 
             // btnGenerateQR
             // 
-            this.btnGenerateQR.Location = new System.Drawing.Point(401, 537);
+            this.btnGenerateQR.Location = new System.Drawing.Point(401, 510);
             this.btnGenerateQR.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerateQR.Name = "btnGenerateQR";
             this.btnGenerateQR.Size = new System.Drawing.Size(182, 62);
@@ -225,14 +226,25 @@ namespace Arduino_2FA
             this.btnGenerateQR.UseVisualStyleBackColor = true;
             this.btnGenerateQR.Click += new System.EventHandler(this.btnGenerateQR_Click);
             // 
+            // lblMissatge
+            // 
+            this.lblMissatge.AutoSize = true;
+            this.lblMissatge.Location = new System.Drawing.Point(17, 589);
+            this.lblMissatge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMissatge.Name = "lblMissatge";
+            this.lblMissatge.Size = new System.Drawing.Size(78, 17);
+            this.lblMissatge.TabIndex = 28;
+            this.lblMissatge.Text = "MISSATGE";
+            // 
             // frmValidation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 615);
+            this.ClientSize = new System.Drawing.Size(853, 625);
+            this.Controls.Add(this.lblMissatge);
             this.Controls.Add(this.btnGenerateQR);
             this.Controls.Add(this.txtSequenceCode);
-            this.Controls.Add(this.txtNomComplertUsuari);
+            this.Controls.Add(this.txtNomCompletUsuari);
             this.Controls.Add(this.btnClosed);
             this.Controls.Add(this.cmbDevice);
             this.Controls.Add(this.lblCamera);
@@ -278,9 +290,10 @@ namespace Arduino_2FA
         private System.Windows.Forms.ComboBox cmbDevice;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox btnClosed;
-        private System.Windows.Forms.TextBox txtNomComplertUsuari;
+        private System.Windows.Forms.TextBox txtNomCompletUsuari;
         private System.Windows.Forms.TextBox txtSequenceCode;
         private System.Windows.Forms.Button btnGenerateQR;
+        private System.Windows.Forms.Label lblMissatge;
     }
 }
 

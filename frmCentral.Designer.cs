@@ -228,9 +228,9 @@ namespace Arduino_2FA
             this.lblTimer.Location = new System.Drawing.Point(21, 204);
             this.lblTimer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(93, 46);
+            this.lblTimer.Size = new System.Drawing.Size(104, 46);
             this.lblTimer.TabIndex = 19;
-            this.lblTimer.Text = "TIMER";
+            this.lblTimer.Text = "60 : 00";
             // 
             // timer1
             // 

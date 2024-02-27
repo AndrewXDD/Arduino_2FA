@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
@@ -23,12 +24,11 @@ namespace Arduino_2FA
             InitializeComponent();
         }
 
-        FilterInfoCollection filterInfoCollection;
-        VideoCaptureDevice captureDevice;
-        SqlConnection conn;
-        string cnx = "";
-        string query;
-        DataSet dts;
+        private FilterInfoCollection filterInfoCollection;
+        private VideoCaptureDevice captureDevice;
+        private SqlConnection conn;
+        private string cnx = "";
+        private DataSet dts;
 
         public void Connectar()
         {
@@ -53,7 +53,28 @@ namespace Arduino_2FA
 
         private void btnShowInfo_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string query = "SELECT * FROM Users WHERE CodeUser = '" + txtCodiUsuari.Text + "'";
 
+                dts = PortarPerConsulta(query, "Users");
+
+                if (dts.Tables[0].Rows != null)
+                {
+                    string nomComplet = dts.Tables[0].Rows[0]["UserName"].ToString();
+                    string codeUser = dts.Tables[0].Rows[0]["CodeUser"].ToString();
+                    string login = dts.Tables[0].Rows[0]["Login"].ToString();
+
+                    txtNomCompletUsuari.Text = nomComplet;
+                    txtSequenceCode.Text = codeUser + "\r\n" + nomComplet + "\r\n" + login;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMissatge.Text = "Error en mostrar la informació de l'usuari: " + ex.Message;
+                txtNomCompletUsuari.Text = "";
+                txtSequenceCode.Text = "";
+            }
         }
 
         private void btnGenerateQR_Click(object sender, EventArgs e)
@@ -69,8 +90,10 @@ namespace Arduino_2FA
         {
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filterInfo in filterInfoCollection)
+            {
                 cmbDevice.Items.Add(filterInfo.Name);
-            cmbDevice.SelectedIndex = 0;
+                cmbDevice.SelectedIndex = 0;
+            }
         }
 
         private void btn_CheckQR_Click(object sender, EventArgs e)
@@ -89,7 +112,9 @@ namespace Arduino_2FA
         private void frmValidation_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (captureDevice.IsRunning)
+            {
                 captureDevice.Stop();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -102,9 +127,21 @@ namespace Arduino_2FA
                 if (result != null)
                 {
                     txtQRCode.Text = result.ToString();
+                    Thread.Sleep(2000);
                     timer1.Stop();
+
                     if (captureDevice.IsRunning)
+                    {
                         captureDevice.Stop();
+
+                        if (txtSequenceCode.Text == txtQRCode.Text)
+                        {
+                            this.Close();
+
+                            frmCoordenades frm = new frmCoordenades();
+                            frm.Show();
+                        }
+                    }
                 }
             }
         }

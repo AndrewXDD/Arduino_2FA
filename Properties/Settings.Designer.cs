@@ -33,5 +33,16 @@ namespace Arduino_2FA.Properties {
                 return ((string)(this["SecureCoreG2ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.56.103;Initial Catalog=DarkCore;Persist Security Info=True;Us" +
+            "er ID=sa;Password=MS123456aA.")]
+        public string DarkCoreConnectionString {
+            get {
+                return ((string)(this["DarkCoreConnectionString"]));
+            }
+        }
     }
 }

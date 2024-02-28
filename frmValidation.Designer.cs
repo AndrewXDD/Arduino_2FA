@@ -88,7 +88,7 @@ namespace Arduino_2FA
             this.btnShowInfo.Location = new System.Drawing.Point(695, 76);
             this.btnShowInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowInfo.Name = "btnShowInfo";
-            this.btnShowInfo.Size = new System.Drawing.Size(137, 42);
+            this.btnShowInfo.Size = new System.Drawing.Size(137, 33);
             this.btnShowInfo.TabIndex = 3;
             this.btnShowInfo.Text = "Show Info";
             this.btnShowInfo.UseVisualStyleBackColor = true;

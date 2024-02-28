@@ -27,46 +27,42 @@ namespace Arduino_2FA
         private FilterInfoCollection filterInfoCollection;
         private VideoCaptureDevice captureDevice;
         private SqlConnection conn;
-        private string cnx = "";
         private DataSet dts;
-
-        public void Connectar()
-        {
-            ConnectionStringSettings conf = ConfigurationManager.ConnectionStrings["ConnexioBD"];
-            if (conf != null) cnx = conf.ConnectionString;
-
-            conn = new SqlConnection(cnx);
-        }
-
-        public DataSet PortarPerConsulta(string query, string nomTaulaDades)
-        {
-            Connectar();
-            dts = new DataSet();
-            SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-
-            conn.Open();
-            adapter.Fill(dts, nomTaulaDades);
-            conn.Close();
-
-            return dts;
-        }
+        private DataSet dts2;
+        private SqlCommand cmd;
+        private string cnx = "";
+        private string idUsuari;
 
         private void btnShowInfo_Click(object sender, EventArgs e)
         {
             try
             {
-                string query = "SELECT * FROM Users WHERE CodeUser = '" + txtCodiUsuari.Text + "'";
+                string query = "SELECT * FROM Users WHERE codeUser = '" + txtCodiUsuari.Text + "'";
 
                 dts = PortarPerConsulta(query, "Users");
 
-                if (dts.Tables[0].Rows != null)
+                if (dts.Tables[0].Rows.Count > 0)
                 {
-                    string nomComplet = dts.Tables[0].Rows[0]["UserName"].ToString();
-                    string codeUser = dts.Tables[0].Rows[0]["CodeUser"].ToString();
-                    string login = dts.Tables[0].Rows[0]["Login"].ToString();
-
+                    idUsuari = dts.Tables[0].Rows[0]["idUser"].ToString();
+                    string nomComplet = dts.Tables[0].Rows[0]["descUser"].ToString();
                     txtNomCompletUsuari.Text = nomComplet;
-                    txtSequenceCode.Text = codeUser + "\r\n" + nomComplet + "\r\n" + login;
+
+                    string query2 = "SELECT * FROM CodeChain WHERE idUser = '" + idUsuari + "'";
+                    dts2 = PortarPerConsulta(query2, "CodeChain");
+
+                    if (dts2.Tables[0].Rows.Count > 0)
+                    {
+                        string dades = dts2.Tables[0].Rows[0]["CodeChain"].ToString();
+                        txtSequenceCode.Text = dades;
+                    }
+                    else
+                    {
+                        lblMissatge.Text = "No s'han trobat dades per a aquest usuari.";
+                    }
+                }
+                else
+                {
+                    lblMissatge.Text = "No s'ha trobat cap usuari amb aquest codi.";
                 }
             }
             catch (Exception ex)
@@ -84,6 +80,8 @@ namespace Arduino_2FA
             QRCode code = new QRCode(data);
 
             pictureBoxCamera.Image = code.GetGraphic(5);
+
+            GuardarDadesEnBD(txtSequenceCode.Text);
         }
 
         private void frmValidation_Load(object sender, EventArgs e)
@@ -111,9 +109,16 @@ namespace Arduino_2FA
 
         private void frmValidation_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (captureDevice.IsRunning)
+            try
             {
-                captureDevice.Stop();
+                if (captureDevice != null && captureDevice.IsRunning)
+                {
+                    captureDevice.Stop();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMissatge.Text = ex.Message;
             }
         }
 
@@ -127,7 +132,6 @@ namespace Arduino_2FA
                 if (result != null)
                 {
                     txtQRCode.Text = result.ToString();
-                    Thread.Sleep(2000);
                     timer1.Stop();
 
                     if (captureDevice.IsRunning)
@@ -136,8 +140,6 @@ namespace Arduino_2FA
 
                         if (txtSequenceCode.Text == txtQRCode.Text)
                         {
-                            this.Close();
-
                             frmCoordenades frm = new frmCoordenades();
                             frm.Show();
                         }
@@ -150,5 +152,44 @@ namespace Arduino_2FA
         {
             this.Close();
         }
+
+        public void Connectar()
+        {
+            ConnectionStringSettings conf = ConfigurationManager.ConnectionStrings["ConnexioBD"];
+            if (conf != null) cnx = conf.ConnectionString;
+
+            conn = new SqlConnection(cnx);
+        }
+
+        public DataSet PortarPerConsulta(string query, string nomTaulaDades)
+        {
+            Connectar();
+            dts = new DataSet();
+            SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+
+            conn.Open();
+            adapter.Fill(dts, nomTaulaDades);
+            conn.Close();
+
+            return dts;
+        }
+
+        private void GuardarDadesEnBD(string dades)
+        {
+            try
+            {
+                Connectar();
+                string query = "INSERT INTO CodeChain (idUser, CodeChain) VALUES (" + idUsuari + ", '" + dades + "')";
+                cmd = new SqlCommand(query, conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                lblMissatge.Text = "Error en desar els dades a la base de dades: " + ex.Message;
+            }
+        }
+
     }
 }

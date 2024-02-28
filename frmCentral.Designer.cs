@@ -155,7 +155,7 @@ namespace Arduino_2FA
             this.btnVerify1.Location = new System.Drawing.Point(474, 204);
             this.btnVerify1.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerify1.Name = "btnVerify1";
-            this.btnVerify1.Size = new System.Drawing.Size(81, 32);
+            this.btnVerify1.Size = new System.Drawing.Size(81, 33);
             this.btnVerify1.TabIndex = 12;
             this.btnVerify1.Text = "Verify";
             this.btnVerify1.UseVisualStyleBackColor = true;
@@ -259,7 +259,7 @@ namespace Arduino_2FA
             // 
             this.btnConnect.Location = new System.Drawing.Point(220, 90);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(76, 24);
+            this.btnConnect.Size = new System.Drawing.Size(100, 33);
             this.btnConnect.TabIndex = 20;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -283,7 +283,7 @@ namespace Arduino_2FA
             this.btnVerify2.Location = new System.Drawing.Point(474, 310);
             this.btnVerify2.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerify2.Name = "btnVerify2";
-            this.btnVerify2.Size = new System.Drawing.Size(81, 32);
+            this.btnVerify2.Size = new System.Drawing.Size(81, 33);
             this.btnVerify2.TabIndex = 25;
             this.btnVerify2.Text = "Verify";
             this.btnVerify2.UseVisualStyleBackColor = true;

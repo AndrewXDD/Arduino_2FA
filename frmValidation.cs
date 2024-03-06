@@ -37,6 +37,8 @@ namespace Arduino_2FA
         {
             try
             {
+                lblMissatge.Text = "";
+
                 string query = "SELECT * FROM Users WHERE codeUser = '" + txtCodiUsuari.Text + "'";
 
                 dts = PortarPerConsulta(query, "Users");
@@ -58,11 +60,14 @@ namespace Arduino_2FA
                     else
                     {
                         lblMissatge.Text = "No s'han trobat dades per a aquest usuari.";
+                        txtSequenceCode.Text = "";
                     }
                 }
                 else
                 {
                     lblMissatge.Text = "No s'ha trobat cap usuari amb aquest codi.";
+                    txtNomCompletUsuari.Text = "";
+                    txtSequenceCode.Text = "";
                 }
             }
             catch (Exception ex)
@@ -190,6 +195,5 @@ namespace Arduino_2FA
                 lblMissatge.Text = "Error en desar els dades a la base de dades: " + ex.Message;
             }
         }
-
     }
 }

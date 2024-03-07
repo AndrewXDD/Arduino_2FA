@@ -32,6 +32,7 @@ namespace Arduino_2FA
         private SqlCommand cmd;
         private string cnx = "";
         private string idUsuari;
+        private string dadesBBDD;
 
         private void btnShowInfo_Click(object sender, EventArgs e)
         {
@@ -54,8 +55,8 @@ namespace Arduino_2FA
 
                     if (dts2.Tables[0].Rows.Count > 0)
                     {
-                        string dades = dts2.Tables[0].Rows[0]["CodeChain"].ToString();
-                        txtSequenceCode.Text = dades;
+                        dadesBBDD = dts2.Tables[0].Rows[0]["CodeChain"].ToString();
+                        txtSequenceCode.Text = dadesBBDD;
                     }
                     else
                     {
@@ -80,13 +81,20 @@ namespace Arduino_2FA
 
         private void btnGenerateQR_Click(object sender, EventArgs e)
         {
-            QRCodeGenerator qr = new QRCodeGenerator();
-            QRCodeData data = qr.CreateQrCode(txtSequenceCode.Text, QRCodeGenerator.ECCLevel.Q);
-            QRCode code = new QRCode(data);
+            try
+            {
+                QRCodeGenerator qr = new QRCodeGenerator();
+                QRCodeData data = qr.CreateQrCode(txtSequenceCode.Text, QRCodeGenerator.ECCLevel.Q);
+                QRCode code = new QRCode(data);
 
-            pictureBoxCamera.Image = code.GetGraphic(5);
+                pictureBoxCamera.Image = code.GetGraphic(5);
 
-            GuardarDadesEnBD(txtSequenceCode.Text);
+                GuardarDadesEnBD(txtSequenceCode.Text);
+            }
+            catch (Exception ex)
+            {
+                lblMissatge.Text = ex.Message;
+            }
         }
 
         private void frmValidation_Load(object sender, EventArgs e)
@@ -143,19 +151,18 @@ namespace Arduino_2FA
                     {
                         captureDevice.Stop();
 
-                        if (txtSequenceCode.Text == txtQRCode.Text)
+                        if (dadesBBDD == txtQRCode.Text)
                         {
                             frmCoordenades frm = new frmCoordenades();
                             frm.Show();
                         }
+                        else
+                        {
+                            lblMissatge.Text = "Els missatges no coincideixen. Si us plau, escaneja el codi QR correcte.";
+                        }
                     }
                 }
             }
-        }
-
-        private void btnClosed_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         public void Connectar()
@@ -179,21 +186,45 @@ namespace Arduino_2FA
             return dts;
         }
 
+        public void Executar(string query)
+        {
+            Connectar();
+            conn.Open();
+            cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
         private void GuardarDadesEnBD(string dades)
         {
             try
             {
-                Connectar();
-                string query = "INSERT INTO CodeChain (idUser, CodeChain) VALUES (" + idUsuari + ", '" + dades + "')";
+                string query = "SELECT COUNT(*) FROM CodeChain WHERE idUser = " + idUsuari;
                 cmd = new SqlCommand(query, conn);
                 conn.Open();
-                cmd.ExecuteNonQuery();
+                int count = (int)cmd.ExecuteScalar();
                 conn.Close();
+
+                if (count > 0)
+                {
+                    string queryUpdate = "UPDATE CodeChain SET CodeChain = '" + dades + "' WHERE idUser = " + idUsuari;
+                    Executar(queryUpdate);
+                }
+                else
+                {
+                    string queryInsert = "INSERT INTO CodeChain (idUser, CodeChain) VALUES (" + idUsuari + ", '" + dades + "')";
+                    Executar(queryInsert);
+                }
             }
             catch (Exception ex)
             {
-                lblMissatge.Text = "Error en desar els dades a la base de dades: " + ex.Message;
+                lblMissatge.Text = "Error en desar les dades a la base de dades: " + ex.Message;
             }
+        }
+
+        private void btnClosed_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

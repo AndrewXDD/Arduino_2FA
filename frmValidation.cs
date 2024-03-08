@@ -29,7 +29,9 @@ namespace Arduino_2FA
         private SqlConnection conn;
         private DataSet dts;
         private DataSet dts2;
+        private DataSet dts3;
         private SqlCommand cmd;
+        private SqlDataAdapter adapter;
         private string cnx = "";
         private string idUsuari;
         private string dadesBBDD;
@@ -194,26 +196,47 @@ namespace Arduino_2FA
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+        public void Actualitzar(string query, DataSet modifiedDataSet)
+        {
+            Connectar();
+
+            adapter = new SqlDataAdapter(query, conn);
+            SqlCommandBuilder cmdBuilder;
+            cmdBuilder = new SqlCommandBuilder(adapter);
+
+            if (modifiedDataSet.HasChanges())
+            {
+                int result = adapter.Update(modifiedDataSet.Tables[0]);
+            }
+
+            conn.Close();
+        }
 
         private void GuardarDadesEnBD(string dades)
         {
             try
             {
-                string query = "SELECT COUNT(*) FROM CodeChain WHERE idUser = " + idUsuari;
-                cmd = new SqlCommand(query, conn);
-                conn.Open();
-                int count = (int)cmd.ExecuteScalar();
-                conn.Close();
+                string query = "SELECT * FROM CodeChain WHERE idUser = " + idUsuari;
+                dts3 = PortarPerConsulta(query, "CodeChain");
+                int registres = dts3.Tables[0].Rows.Count;
 
-                if (count > 0)
+                //cmd = new SqlCommand(query, conn);
+                //conn.Open();
+                //int count = (int)cmd.ExecuteScalar();
+                //conn.Close();
+
+                if (registres > 0)
                 {
                     string queryUpdate = "UPDATE CodeChain SET CodeChain = '" + dades + "' WHERE idUser = " + idUsuari;
-                    Executar(queryUpdate);
+                    dts3 = PortarPerConsulta(queryUpdate, "CodeChain");
+
+                    Actualitzar(queryUpdate, dts3);
                 }
                 else
                 {
                     string queryInsert = "INSERT INTO CodeChain (idUser, CodeChain) VALUES (" + idUsuari + ", '" + dades + "')";
-                    Executar(queryInsert);
+                    dts3 = PortarPerConsulta(queryInsert, "CodeChain");
+                    Actualitzar(queryInsert, dts3);
                 }
             }
             catch (Exception ex)

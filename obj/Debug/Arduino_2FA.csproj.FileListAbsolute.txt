@@ -33,3 +33,27 @@ C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frmValidation.resources
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frmCentral.resources
 C:\S2AM\M13\Arduino\Fitxa 5\obj\Debug\Arduino_2FA.frmCoordenades.resources
 C:\S2AM\M13\Arduino\Fitxa 5\bin\Debug\QRCoder.dll
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\Arduino_2FA.exe.config
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\Arduino_2FA.exe
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\Arduino_2FA.pdb
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\AForge.dll
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\AForge.Video.dll
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\QRCoder.dll
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\zxing.dll
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\zxing.presentation.dll
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\AForge.xml
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\AForge.Video.xml
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\zxing.xml
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\bin\Debug\zxing.presentation.xml
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.csproj.AssemblyReference.cache
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.frmCoordenades.resources
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.frmValidation.resources
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.frmCentral.resources
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.Properties.Resources.resources
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.csproj.GenerateResource.cache
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.csproj.CoreCompileInputs.cache
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.csproj.CopyComplete
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.exe
+C:\Users\andre\source\repos\Arduino_2FA\Arduino_2FA\obj\Debug\Arduino_2FA.pdb
